@@ -36,33 +36,15 @@
     margin-right: 2em;
   }                             
 </style>
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   $(document).ready(() => {
-    function buildFilters() {
-      const region = $('#region-filter').val();
-      const domain = $('#domain-filter').val();
-      const filterObj = {
-        Region: region,
-        SubCat2: domain
-      }
-      const reducedFilters = _.reduce(filterObj, (finalParam, thisVal, thisKey) => _.isEmpty(thisVal) ? finalParam : _.assign({
-        [thisKey]: thisVal
-      }, finalParam), {});
-      const stringifiedFilters = JSON.stringify(reducedFilters);
-      console.log('Filters:', stringifiedFilters);
-      return stringifiedFilters;
-    }
     $("#region-filter").change(() => {
-      const newFilters = buildFilters();
-      const newSource = 'https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=4281f477-53cd-428c-b366-71eb74edd98a&maxDataAge=3600&theme=light&autoRefresh=true&filter=' + newFilters;
-      $('#abyss-table').attr('src', newSource);
+      setTableFilters('domain-table');
     });
-    $("#domain-filter").change(() => {
-      const newFilters = buildFilters();
-      const newSource = 'https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=4281f477-53cd-428c-b366-71eb74edd98a&maxDataAge=3600&theme=light&autoRefresh=true&filter=' + newFilters;
-      $('#abyss-table').attr('src', newSource);
+    $("#subcat2-filter").change(() => {
+      setTableFilters('domain-table');
     });
   });
 </script>
@@ -79,26 +61,26 @@
     </select>
   </div>
   <div class="filter-group">
-    <label labelfor="domain-filter">Domain:</label>
-    <select id="domain-filter" class="dynam-filter">
-    <option value="" selected="">All</option>
-    <option value="Cecilia Garden">Cecilia Garden</option>
-    <option value="Hidden Palace of Lianshan Formula">Hidden Palace of Lianshan Formula</option>
-    <option value="Court of Flowing Sand">Court of Flowing Sand</option>
-    <option value="Domain of Guyun">Domain of Guyun</option>
-    <option value="Midsummer Courtyard">Midsummer Courtyard</option>
-    <option value="Valley of Remembrance">Valley of Remembrance</option>
-    <option value="Hidden Palace of Zhou Formula">Hidden Palace of Zhou Formula</option>
-    <option value="Peak of Vindagnyr">Peak of Vindagnyr</option>
-    <option value="Ridge Watch">Ridge Watch</option>
-    <option value="Momiji-Dyed Court">Momiji-Dyed Court</option>
-    <option value="Slumbering Court">Slumbering Court</option>
-    <option value="Clear Pool and Mountain Cavern">Clear Pool and Mountain Cavern</option>
-    <option value="Taishan Mansion">Taishan Mansion</option>
-    <option value="Forsaken Rift">Forsaken Rift</option>
-    <option value="Violet Court">Violet Court</option>
+    <label labelfor="subcat2-filter">Domain:</label>
+    <select id="subcat2-filter" class="dynam-filter">
+      <option value="" selected="">All</option>
+      <option value="Cecilia Garden">Cecilia Garden</option>
+      <option value="Hidden Palace of Lianshan Formula">Hidden Palace of Lianshan Formula</option>
+      <option value="Court of Flowing Sand">Court of Flowing Sand</option>
+      <option value="Domain of Guyun">Domain of Guyun</option>
+      <option value="Midsummer Courtyard">Midsummer Courtyard</option>
+      <option value="Valley of Remembrance">Valley of Remembrance</option>
+      <option value="Hidden Palace of Zhou Formula">Hidden Palace of Zhou Formula</option>
+      <option value="Peak of Vindagnyr">Peak of Vindagnyr</option>
+      <option value="Ridge Watch">Ridge Watch</option>
+      <option value="Momiji-Dyed Court">Momiji-Dyed Court</option>
+      <option value="Slumbering Court">Slumbering Court</option>
+      <option value="Clear Pool and Mountain Cavern">Clear Pool and Mountain Cavern</option>
+      <option value="Taishan Mansion">Taishan Mansion</option>
+      <option value="Forsaken Rift">Forsaken Rift</option>
+      <option value="Violet Court">Violet Court</option>
     </select>
   </div>
 </section>
-<iframe id="abyss-table" style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" src="https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=4281f477-53cd-428c-b366-71eb74edd98a&amp;maxDataAge=3600&amp;theme=light&amp;autoRefresh=true"></iframe>
+<iframe id="domain-table" style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" src="https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=4281f477-53cd-428c-b366-71eb74edd98a&amp;maxDataAge=3600&amp;theme=light&amp;autoRefresh=true"></iframe>
 

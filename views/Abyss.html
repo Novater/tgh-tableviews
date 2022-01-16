@@ -36,40 +36,18 @@
     margin-right: 2em;
   }
 </style>
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   $(document).ready(() => {
-    function buildFilters() {
-      const region = $('#region-filter').val();
-      const version = $('#version-filter').val();
-      const floor = $('#floor-filter').val();
-      const filterObj = {
-        Region: region,
-        SubCat1: version,
-        SubCat2: floor
-      }
-      const reducedFilters = _.reduce(filterObj, (finalParam, thisVal, thisKey) => _.isEmpty(thisVal) ? finalParam : _.assign({
-        [thisKey]: thisVal
-      }, finalParam), {});
-      const stringifiedFilters = JSON.stringify(reducedFilters);
-      console.log('Filters:', stringifiedFilters);
-      return stringifiedFilters;
-    }
     $("#region-filter").change(() => {
-      const newFilters = buildFilters();
-      const newSource = 'https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=033af0b1-d082-4238-83be-3b1224b96c81&maxDataAge=3600&theme=light&autoRefresh=true&filter=' + newFilters;
-      $('#abyss-table').attr('src', newSource);
+      setTableFilters('abyss-table');
     });
-    $("#version-filter").change(() => {
-      const newFilters = buildFilters();
-      const newSource = 'https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=033af0b1-d082-4238-83be-3b1224b96c81&maxDataAge=3600&theme=light&autoRefresh=true&filter=' + newFilters;
-      $('#abyss-table').attr('src', newSource);
+    $("#subcat1-filter").change(() => {
+      setTableFilters('abyss-table');
     });
-    $("#floor-filter").change(() => {
-      const newFilters = buildFilters();
-      const newSource = 'https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=033af0b1-d082-4238-83be-3b1224b96c81&maxDataAge=3600&theme=light&autoRefresh=true&filter=' + newFilters;
-      $('#abyss-table').attr('src', newSource);
+    $("#subcat2-filter").change(() => {
+      setTableFilters('abyss-table');
     });
   });
 </script>
@@ -86,8 +64,8 @@
     </select>
   </div>
   <div class="filter-group">
-    <label labelfor="version-filter">Version:</label>
-    <select id="version-filter" class="dynam-filter">
+    <label labelfor="subcat1-filter">Version:</label>
+    <select id="subcat1-filter" class="dynam-filter">
       <option value="" selected="">All</option>
       <option value="2.4">2.4</option>
       <option value="2.3">2.3</option>
@@ -98,8 +76,8 @@
     </select>
   </div>
   <div class="filter-group">
-    <label labelfor="floor-filter">Floor:</label>
-    <select id="floor-filter" class="dynam-filter">
+    <label labelfor="subcat2-filter">Floor:</label>
+    <select id="subcat2-filter" class="dynam-filter">
       <option value="" selected="">All</option>
       <option value="12-1-1">12-1-1</option>
       <option value="12-1-2">12-1-2</option>

@@ -1,0 +1,106 @@
+
+<style>
+  html {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .filters {
+    width: 100%;
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  #abyss-table {
+    width: 95vw !important;
+    height: 100vh;
+  }
+
+  .dynam-filter {
+    padding-left: 2em;
+    padding-right: 2em;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 2em;
+  }
+</style>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  $(document).ready(() => {
+    function buildFilters() {
+      const region = $('#region-filter').val();
+      const boss = $('#boss-filter').val();
+      const filterObj = {
+        Region: region,
+        SubCat2: boss
+      }
+      const reducedFilters = _.reduce(filterObj, (finalParam, thisVal, thisKey) => _.isEmpty(thisVal) ? finalParam : _.assign({
+        [thisKey]: thisVal
+      }, finalParam), {});
+      const stringifiedFilters = JSON.stringify(reducedFilters);
+      console.log('Filters:', stringifiedFilters);
+      
+      return stringifiedFilters;
+    }
+
+    $("#region-filter").change(() => {
+      const newFilters = buildFilters();
+      const newSource = 'https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=6ef76005-c2ef-4264-bc68-011b2877e74c&maxDataAge=3600&theme=light&autoRefresh=true&filter=' + newFilters;
+      $('#abyss-table').attr('src', newSource);
+    });
+    $("#boss-filter").change(() => {
+      const newFilters = buildFilters();
+      const newSource = 'https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=6ef76005-c2ef-4264-bc68-011b2877e74c&maxDataAge=3600&theme=light&autoRefresh=true&filter=' + newFilters;
+      $('#abyss-table').attr('src', newSource);
+    });
+  });
+</script>
+<section class="filters">
+  <div class="filter-group">
+    <label labelfor="region-filter">Region:</label>
+    <select id="region-filter" class="dynam-filter">
+      <option value="" selected="">All</option>
+    <option value="China">China</option>
+      <option value="America">America</option>
+      <option value="Europe">Europe</option>
+      <option value="Asia">Asia</option>
+    <option value="Asia">TW/HK/MO</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label labelfor="boss-filter">Boss:</label>
+    <select id="boss-filter" class="dynam-filter">
+      <option value="" selected="">All</option>
+      <option value="Anemo Hypostasis">Anemo Hypostasis</option>
+      <option value="Coral Defenders">Coral Defenders</option>
+      <option value="Cryo Hypostasis">Cryo Hypostasis</option>
+      <option value="Cryo Regisvine">Cryo Regisvine</option>
+      <option value="Electro Hypostasis">Electro Hypostasis</option>
+      <option value="Geo Hypostasis">Geo Hypostasis</option>
+      <option value="Golden Wolflord">Golden Wolflord</option>
+      <option value="Hydro Hypostasis">Hydro Hypostasis</option>
+      <option value="Maguu Kenki">Maguu Kenki</option>
+      <option value="Perpetual Mechanical Array">Perpetual Mechanical Array</option>
+      <option value="Primo Geovishap">Primo Geovishap</option>
+      <option value="Pyro Hypostasis">Pyro Hypostasis</option>
+      <option value="Pyro Regisvine">Pyro Regisvine</option>
+      <option value="Rhodeia of Loch">Rhodeia of Loch</option>
+      <option value="Thunder Manifestation">Thunder Manifestation</option>
+    </select>
+  </div>
+</section>
+<iframe id="abyss-table" style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" src="https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=6ef76005-c2ef-4264-bc68-011b2877e74c&amp;maxDataAge=3600&amp;theme=light&amp;autoRefresh=true"></iframe>
+

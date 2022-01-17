@@ -1,0 +1,35 @@
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.filters {
+  width: 100%;
+  height: 5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+#abyss-table {
+  width: 95vw !important;
+  height: 100vh;
+}
+
+.dynam-filter {
+  padding-left: 2em;
+  padding-right: 2em;
+  height: fit-content;
+  width: fit-content;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 2em;
+}

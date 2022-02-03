@@ -3,7 +3,7 @@
     $("#region-filter").change(() => {
       setTableFilters('event-table');
     });
-    $("#subcat1-filter").change(() => {
+    $("#abyssVersion-filter").change(() => {
       setTableFilters('event-table');
     });
   });
@@ -17,19 +17,18 @@
       <option value="America">America</option>
       <option value="Europe">Europe</option>
       <option value="Asia">Asia</option>
-      <option value="Asia">TW/HK/MO</option>
+      <option value="TW/HK/MO">TW/HK/MO</option>
     </select>
   </div>
   <div class="filter-group">
-    <label labelfor="subcat1-filter">Event:</label>
-    <select id="subcat1-filter" class="dynam-filter">
+    <label labelfor="abyssVersion-filter">Event:</label>
+    <select id="abyssVersion-filter" class="dynam-filter">
       <option value="" selected="">All</option>
-      <option value="1.6 Legend of the Vagabond Sword">1.6 Legend of the Vagabond Sword</option>
-      <option value="2.0 Phantom Flow">2.0 Phantom Flow</option>
-      <option value="2.3 Energy Amplifier Fruition">2.3 Energy Amplifier Fruition</option>
       <option value="2.4 A Study in Potions">2.4 A Study in Potions</option>
+      <option value="2.3 Energy Amplifier Fruition">2.3 Energy Amplifier Fruition</option>
+      <option value="2.0 Phantom Flow">2.0 Phantom Flow</option>
+      <option value="1.6 Legend of the Vagabond Sword">1.6 Legend of the Vagabond Sword</option>
     </select>
   </div>
 </section>
-<iframe id="event-table" style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" src="https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=3dfb74bf-d908-4d69-90a6-764bd1ee7c5f&amp;maxDataAge=3600&amp;theme=light&amp;autoRefresh=true"></iframe>
-
+<iframe id="event-table" style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" src="https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=d81cab44-efe0-49ce-86a8-279bd6e4a7e3&amp;maxDataAge=60&amp;theme=light&amp;autoRefresh=false"></iframe>

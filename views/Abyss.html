@@ -3,10 +3,10 @@
     $("#region-filter").change(() => {
       setTableFilters('abyss-table');
     });
-    $("#subcat1-filter").change(() => {
+    $("#abyssVersion-filter").change(() => {
       setTableFilters('abyss-table');
     });
-    $("#subcat2-filter").change(() => {
+    $("#subcat-filter").change(() => {
       setTableFilters('abyss-table');
     });
   });
@@ -20,12 +20,12 @@
       <option value="America">America</option>
       <option value="Europe">Europe</option>
       <option value="Asia">Asia</option>
-      <option value="Asia">TW/HK/MO</option>
+      <option value="TW/HK/MO">TW/HK/MO</option>
     </select>
   </div>
   <div class="filter-group">
-    <label labelfor="subcat1-filter">Version:</label>
-    <select id="subcat1-filter" class="dynam-filter">
+    <label labelfor="abyssVersion-filter">Version:</label>
+    <select id="abyssVersion-filter" class="dynam-filter">
       <option value="" selected="">All</option>
       <option value="2.4">2.4</option>
       <option value="2.3">2.3</option>
@@ -36,8 +36,8 @@
     </select>
   </div>
   <div class="filter-group">
-    <label labelfor="subcat2-filter">Floor:</label>
-    <select id="subcat2-filter" class="dynam-filter">
+    <label labelfor="subcat-filter">Floor:</label>
+    <select id="subcat-filter" class="dynam-filter">
       <option value="" selected="">All</option>
       <option value="12-1-1">12-1-1</option>
       <option value="12-1-2">12-1-2</option>
@@ -53,5 +53,4 @@
     </select>
   </div>
 </section>
-<iframe id="abyss-table" style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" src="https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=033af0b1-d082-4238-83be-3b1224b96c81&amp;maxDataAge=3600&amp;theme=light&amp;autoRefresh=true"></iframe>
-
+<iframe id="abyss-table" style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" src="https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=b87fbbab-1537-4db9-94df-5b02986bbfd3&amp;maxDataAge=60&amp;theme=light&amp;autoRefresh=false"></iframe>

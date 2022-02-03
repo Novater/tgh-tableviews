@@ -3,7 +3,7 @@
     $("#region-filter").change(() => {
       setTableFilters('weekly-boss-table');
     });
-    $("#subcat2-filter").change(() => {
+    $("#subcat-filter").change(() => {
       setTableFilters('weekly-boss-table');
     });
   });
@@ -17,12 +17,12 @@
       <option value="America">America</option>
       <option value="Europe">Europe</option>
       <option value="Asia">Asia</option>
-      <option value="Asia">TW/HK/MO</option>
+      <option value="TW/HK/MO">TW/HK/MO</option>
     </select>
   </div>
   <div class="filter-group">
-    <label labelfor="subcat2-filter">Boss:</label>
-    <select id="subcat2-filter" class="dynam-filter">
+    <label labelfor="subcat-filter">Boss:</label>
+    <select id="subcat-filter" class="dynam-filter">
       <option value="" selected="">All</option>
       <option value="Andrius">Andrius</option>
       <option value="Azhdaha">Azhdaha</option>
@@ -32,5 +32,4 @@
     </select>
   </div>
 </section>
-<iframe id="weekly-boss-table" style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" src="https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=5952c1ae-0664-43d1-a818-e4a907acb6a2&amp;maxDataAge=3600&amp;theme=light&amp;autoRefresh=true"></iframe>
-
+<iframe id="weekly-boss-table" style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" src="https://charts.mongodb.com/charts-project-0-bufgk/embed/charts?id=6ebc72e8-7154-4718-9611-34ec72a6e61d&amp;maxDataAge=60&amp;theme=light&amp;autoRefresh=false"></iframe>
